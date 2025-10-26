@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Composed Baller: Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Focused Oranges & Deep Blues -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4; /* Warm Neutral Background */
+            color: #1F2937; /* Deep Blue Text */
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        .nav-link.active {
+            background-color: #E6EBF5; /* Light Blue/Gray */
+            color: #FF5722; /* Focused Orange Accent */
+            border-left-color: #0A3D62; /* Deep Blue Border */
+        }
+        .nav-link:hover {
+            background-color: #E6EBF5;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary {
+            background-color: #0A3D62; /* Deep Blue Primary */
+            color: #FFFFFF;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #082C4A;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .interactive-table tr:not(:first-child) {
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .interactive-table tr:not(:first-child):hover {
+            background-color: #FFF3E0; /* Light Orange/Peach Highlight */
+        }
+    </style>
+</head>
+<body data-rsssl=1 class="antialiased">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 bg-white border-r border-gray-200 flex-shrink-0">
+            <div class="px-6 py-4">
+                <h1 class="text-xl font-bold text-gray-800">The Composed Baller</h1>
+                <div class="my-8">
+                    <img 
+                        src="https://images.unsplash.com/photo-1627915555437-024344558230?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1ODc1NjF8MHwxfHNlYXJjaHwxfHxiYXNrZXRiYWxsJTIwY291cnQlMjBmb2N1c3VkfGVufDB8fHx8MTcwMTg4NTM0N3ww&ixlib=rb-4.0.3&q=80&w=1080"
+                        alt="A basketball on a court floor with focused light symbolizing game focus and resilience" 
+                        style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);" 
+                    />
+                </div>
+                <p class="text-sm text-gray-500">Interactive Guide</p>
+            </div>
+            <nav id="main-nav" class="mt-6">
+                <a href="#home" class="nav-link active flex items-center py-3 px-6 text-gray-700 font-semibold">
+                    <span class="mr-3 text-lg">🏀</span> Home
+                </a>
+                <a href="#anatomy" class="nav-link flex items-center py-3 px-6 text-gray-700 font-semibold">
+                    <span class="mr-3 text-lg">🧠</span> Anatomy of a Turnover
+                </a>
+                <a href="#protocol" class="nav-link flex items-center py-3 px-6 text-gray-700 font-semibold">
+                    <span class="mr-3 text-lg">🚀</span> Mid-Play Reset Protocol
+                </a>
+                <a href="#toolkit" class="nav-link flex items-center py-3 px-6 text-gray-700 font-semibold">
+                    <span class="mr-3 text-lg">🛠️</span> Mental Toolkit
+                </a>
+                <a href="#plan" class="nav-link flex items-center py-3 px-6 text-gray-700 font-semibold">
+                    <span class="mr-3 text-lg">🗓️</span> Training Plan
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 sm:p-8 lg:p-12">
+            
+            <!-- Home Section -->
+            <section id="home" class="content-section active">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Next Play Mentality</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                    Welcome to your interactive guide for mastering the mental aspect of basketball. The sport is defined by speed, pressure, and high-stakes moments. The most valuable player isn't the one who never makes a mistake, but the one who recovers instantly. This tool is designed to help you transform your response to errors—like a turnover or a missed free throw—from emotional hijack into a systematic process of immediate recovery. Explore the sections to learn the psychology of mistakes, master on-court reset protocols, and build the mental toughness of an elite athlete.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-orange-600">It's Not Perfection, It's the Pivot</h3>
+                        <p class="text-gray-600">Basketball is a game of perpetual motion and inevitable errors. The true champion is the one who can hit the mental 'reset' button in a split second and move to the next possession with complete focus.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-orange-600">Composure is Your Competitive Edge</h3>
+                        <p class="text-gray-600">Mental composure isn't a trait; it's a skill you can drill. The techniques here can be trained and perfected with the same discipline you apply to your shooting form or defensive footwork.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anatomy of a Turnover Section -->
+            <section id="anatomy" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Anatomy of a High-Pressure Mistake</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    A single turnover or a missed free throw can trigger a destructive mental cascade that impacts the next 3-4 possessions. Understanding this chain reaction is the first step to stopping it cold. Click on each stage to see how they connect and how the pressure of a game amplifies each one.
+                </p>
+                <div id="cascade-container" class="space-y-4">
+                    <!-- Step 1: Cognitive -->
+                    <div class="cascade-step" data-step="1">
+                        <button class="w-full text-left p-4 card flex justify-between items-center">
+                            <h3 class="text-xl font-semibold"><span class="text-blue-700">1. Cognitive:</span> The Immediate Internal Scolding</h3>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content px-4">
+                            <p class="pt-4 text-gray-600">It begins with a flood of Automatic Negative Thoughts (ANTs). The mind judges ("I messed up the play"), catastrophizes ("We're going to lose because of that"), and self-criticizes ("I'm a liability"). This cognitive noise sends distress signals, demanding an immediate correction that rarely helps.</p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="text-center text-3xl text-orange-600">↓</div>
+                    <!-- Step 2: Emotional -->
+                    <div class="cascade-step" data-step="2">
+                        <button class="w-full text-left p-4 card flex justify-between items-center">
+                            <h3 class="text-xl font-semibold"><span class="text-blue-700">2. Emotional:</span> The Rush of Anxiety & Shame</h3>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content px-4">
+                            <p class="pt-4 text-gray-600">Negative thoughts detonate emotions like frustration, shame, and defensive anger. This emotional chaos causes the player to "press" the next action—forcing a pass, taking a bad shot, or gambling on defense to "make up for it."</p>
+                        </div>
+                    </div>
+                    <!-- Arrow -->
+                    <div class="text-center text-3xl text-orange-600">↓</div>
+                    <!-- Step 3: Physiological -->
+                    <div class="cascade-step" data-step="3">
+                        <button class="w-full text-left p-4 card flex justify-between items-center">
+                            <h3 class="text-xl font-semibold"><span class="text-blue-700">3. Physiological:</span> Muscle Tension & Hyper-focus</h3>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content px-4">
+                            <p class="pt-4 text-gray-600">The body enters "fight or flight." Heart rate spikes, breathing becomes erratic, and muscles tense. This tension cripples the fluidity needed for shooting, ball handling, and quick defensive reactions, leading to the next mistake.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mid-Play Reset Protocol Section -->
+            <section id="protocol" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Mid-Play Reset Protocol</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    In basketball, you don't have a long walk to recover. Recovery must happen during a transition, timeout, or free-throw break. This structured 3-phase protocol is a mental routine designed for **instant** application. Follow these steps to arrive at the next possession mentally clean and ready to execute.
+                </p>
+                <div id="protocol-accordion" class="space-y-4">
+                    <!-- Phase I -->
+                    <div class="protocol-step">
+                        <button class="w-full text-left p-6 card flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-semibold text-orange-600">PHASE I (Immediate 3 Seconds)</p>
+                                <h3 class="text-xl font-bold">Flush & Focus</h3>
+                            </div>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content p-6 bg-white rounded-b-lg border-x border-b border-gray-200">
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong>The 3-Second Rule:</strong> Give yourself 3 seconds maximum to feel the frustration, then actively "flush" it. A quick head shake, a snap of the wrist, or a single word ("Next!") acts as the trigger.</li>
+                                <li><strong>Practice Self-Compassion:</strong> Do not ruminate. Immediately shift internal dialogue: "I made a bad read. That's over. Now, sprint back and protect the paint."</li>
+                                <li><strong>Visual Cue:</strong> See the ball or a key defensive assignment. Anchor your mind to the single most urgent task in the present.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Phase II -->
+                    <div class="protocol-step">
+                        <button class="w-full text-left p-6 card flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-semibold text-orange-600">PHASE II (Stoppage or Free Throw Break)</p>
+                                <h3 class="text-xl font-bold">Regulate & Re-center</h3>
+                            </div>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content p-6 bg-white rounded-b-lg border-x border-b border-gray-200">
+                            <p class="mb-4 text-gray-700">Use any pause in the action to regulate your physiological state and lower the fight-or-flight response.</p>
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong>Box Breathing (4-4-4-4):</strong> Inhale (4s), Hold (4s), Exhale (4s), Hold (4s). Repeat 2-3 times while looking at the court floor to ground yourself.</li>
+                                <li><strong>Physical Anchor:</strong> Put your hands on your hips or perform a predetermined stretch. This non-verbal cue reminds your body to reset its posture and breathing.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Phase III -->
+                    <div class="protocol-step">
+                        <button class="w-full text-left p-6 card flex justify-between items-center">
+                            <div>
+                                <p class="text-sm font-semibold text-orange-600">PHASE III (During the next huddle/possession)</p>
+                                <h3 class="text-xl font-bold">Re-Engage with Intent</h3>
+                            </div>
+                            <span class="text-2xl text-blue-700 transform transition-transform duration-300">+</span>
+                        </button>
+                        <div class="accordion-content p-6 bg-white rounded-b-lg border-x border-b border-gray-200">
+                           <p class="mb-4 text-gray-700">Commit to a single, simple task for the upcoming play, pulling focus away from the past error.</p>
+                            <ul class="list-disc list-inside space-y-3 text-gray-700">
+                                <li><strong>One Simple Directive:</strong> Instead of "Don't mess up," set a positive, concrete goal: "Attack the passing lane," "Set a hard screen," or "Look for the weak-side cutter."</li>
+                                <li><strong>Trust the Routine:</strong> For free throws, stick to your established 5-step pre-shot routine. The routine is the mission; the result is the by-product.</li>
+                                <li><strong>Process Over Outcome:</strong> Focus 100% on execution. Your goal is not to "score the next points," but to "execute the offense perfectly."</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mental Toolkit Section -->
+            <section id="toolkit" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">The Baller's Mental Toolkit</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    The reset protocol is built on core psychological skills. Mastering these techniques not only enables instant recovery but also builds long-term mental resilience. Explore these key tools to strengthen your mental game.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-700">Cognitive Restructuring</h3>
+                        <p class="text-gray-600 mb-4">Identify, challenge, and replace negative thoughts with productive, performance-enhancing ones. The key is to manage your internal dialogue.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm text-left text-gray-500 interactive-table">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">Common Negative Thought</th>
+                                        <th scope="col" class="px-6 py-3">Productive Reframe</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-medium text-gray-900">"I'm cold, I can't hit a shot."</td>
+                                        <td class="px-6 py-4">"My focus is on my technique. Next shot, I will execute my form and trust the process."</td>
+                                    </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 font-medium text-gray-900">"I can't afford another turnover."</td>
+                                        <td class="px-6 py-4">"I will make a high-IQ play. See the court, make the simple, solid pass. Play smart."</td>
+                                    </tr>
+                                    <tr class="bg-white">
+                                        <td class="px-6 py-4 font-medium text-gray-900">"This crowd/pressure is too much."</td>
+                                        <td class="px-6 py-4">"Pressure is a privilege. I earned this moment. I will focus only on my defensive stance and breathing."</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-700">Elite Visualization</h3>
+                        <p class="text-gray-600">Use mental imagery to rehearse success. Don't just see the ball going through the net (outcome), also visualize the *feeling* of a perfect release, the sound of the dribble, and the controlled aggression of your defense (process).</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-700">Pre-Shot/Pre-Possession Routine</h3>
+                        <p class="text-gray-600">Your psychological anchor. A consistent routine (e.g., three free-throw dribbles, specific sideline water sip, self-talk cue) creates a "bubble" of control, ensuring you enter the next play on your terms.</p>
+                    </div>
+                    <div class="card p-6">
+                        <h3 class="font-bold text-xl mb-2 text-blue-700">Applied Mindfulness</h3>
+                        <p class="text-gray-600">Practice "next play focus." Use the smell of the court, the sound of your shoes, or the feel of the ball as an anchor to the present moment. Observe negative thoughts without engaging with them—let them pass by like a missed fast break.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Action Plan Section -->
+            <section id="plan" class="content-section">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Forging the Composed Mindset</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    On-court mental toughness is the result of systematic, daily off-court training. Integrate these practices into your routine to make instant recovery and high-focus play automatic. This is your action plan for sustained mental performance.
+                </p>
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-600 pl-4">Daily (Off-Court)</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="card p-4"><p><strong>Mindfulness Meditation (10 min):</strong> Enhances present-moment focus and emotional regulation.</p></div>
+                            <div class="card p-4"><p><strong>Visualization Drills (5 min):</strong> Mentally rehearse a perfect offensive set or defensive stop.</p></div>
+                            <div class="card p-4"><p><strong>Self-Talk Script Review (5 min):</strong> Internalize 3-5 positive, process-oriented cues.</p></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-600 pl-4">Pre-Game</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="card p-4"><p><strong>Review Process Goals:</strong> Focus on effort and execution ("high energy defense"), not outcome ("win the game").</p></div>
+                            <div class="card p-4"><p><strong>Mental Warm-up (10 min):</strong> Use breathing and imagery to transition from external noise to internal focus.</p></div>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-600 pl-4">During Game</h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="card p-4"><p><strong>Commit to Routine:</strong> Execute your pre-free-throw or sideline routine consistently.</p></div>
+                            <div class="card p-4"><p><strong>Mid-Play Reset Protocol:</strong> Apply the 3-phase flush & refocus immediately after any mistake.</p></div>
+                            <div class="card p-4"><p><strong>Defensive Anchor:</strong> Use the moment to commit fully to the current defensive possession.</p></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-600 pl-4">Post-Game</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="card p-4"><p><strong>Structured Journal:</strong> Evaluate mental execution (Did I stick to the protocol? Was my self-talk supportive?).</p></div>
+                            <div class="card p-4"><p><strong>Reflect & Plan:</strong> Identify one specific mental goal (e.g., "better composure after turnovers") for the next practice.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('#main-nav a');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            function showSection(hash) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                    if ('#' + section.id === hash) {
+                        section.classList.add('active');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetHash = this.getAttribute('href');
+                    history.pushState(null, null, targetHash);
+                    showSection(targetHash);
+                });
+            });
+            
+            const initialHash = window.location.hash || '#home';
+            showSection(initialHash);
+
+            window.addEventListener('popstate', function() {
+                const popHash = window.location.hash || '#home';
+                showSection(popHash);
+            });
+
+            function setupAccordion(containerSelector) {
+                const accordionButtons = document.querySelectorAll(`${containerSelector} button`);
+                accordionButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        const icon = button.querySelector('span:last-child');
+                        const isOpening = !content.style.maxHeight;
+
+                        // Close all other accordions in the protocol section
+                        if (containerSelector === '#protocol-accordion') {
+                            document.querySelectorAll('#protocol-accordion .accordion-content').forEach(item => {
+                                item.style.maxHeight = null;
+                                item.previousElementSibling.querySelector('span:last-child').style.transform = 'rotate(0deg)';
+                            });
+                        }
+
+                        if (isOpening) {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            // For cascade, '+' rotates to 'X'. For protocol, '+' rotates to 'down arrow'.
+                            if(containerSelector === '#cascade-container') {
+                                icon.style.transform = 'rotate(45deg)'; 
+                            } else {
+                                icon.style.transform = 'rotate(180deg)';
+                            }
+                        } else {
+                            content.style.maxHeight = null;
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+                });
+            }
+            
+            setupAccordion('#cascade-container');
+            setupAccordion('#protocol-accordion');
+        });
+    </script>
+
+</body>
+</html>
